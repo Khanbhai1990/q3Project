@@ -12,7 +12,7 @@ export const ADD_CHALLENGE_SUCCESS = 'ADD_CHALLENGE_SUCCESS'
 export const getChallenges = () => {
   return async (dispatch) => {
     dispatch({ type: GET_CHALLENGES_PENDING })
-    let challenges = await axios.get('http://localhost:8000/challenges')
+    let challenges = await axios.get('https://q3-project-data.herokuapp.com/challenges/')
     dispatch({
       type: GET_CHALLENGES_SUCCESS,
       payload: challenges
