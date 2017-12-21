@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { editChallenge } from '../../actions/challenges'
+import { editChallenge, deleteChallenge } from '../../actions/challenges'
 import { bindActionCreators } from 'redux'
 
-import { Table, Button } from 'reactstrap';
+import { Table, Button, Label} from 'reactstrap';
 
 
 class ChallengeNote extends Component {
@@ -27,15 +27,22 @@ class ChallengeNote extends Component {
           <tr key={challenge.id}>
             <th scope="row">{challenge.id}</th>
             <td>{challenge.title}</td>
-            <td><Button onClick={() => this.props.editChallenge(challenge.id)}
-                type="button"
-                className="btn btn-secondary"
-                >
-                {challenge.unlisted.toString()}
-              </Button>
-            </td>
             <td style={{ color:"red"}}>{voteReduce}</td>
-            <td>UnPopular!</td>
+            <td><Button onClick={() => this.props.editChallenge(challenge.id)}
+              type="button"
+              className="btn btn-secondary"
+              >
+              {challenge.unlisted.toString()}
+            </Button>
+            </td>
+            <td><Button onClick={() => this.props.deleteChallenge(challenge.id)}
+              type="button"
+              className="btn btn-secondary"
+              >
+              Delete Challenge
+            </Button>
+            </td>
+            <td> <Label for="exampleText">"UNPOPULAR!"</Label></td>
           </tr>
         )
         }
@@ -49,8 +56,9 @@ class ChallengeNote extends Component {
           <tr>
             <th>#</th>
             <th>Title</th>
-            <th>Unlisted</th>
             <th>Vote Count</th>
+            <th>Unlisted</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -70,7 +78,8 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    editChallenge: bindActionCreators(editChallenge, dispatch)
+    editChallenge: bindActionCreators(editChallenge, dispatch),
+    deleteChallenge: bindActionCreators(deleteChallenge, dispatch)
   }
 }
 

@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Table, InputGroup, InputGroupAddon, Input } from 'reactstrap';
+import AddChallenge from './AddChallenge'
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch
+} from 'react-router-dom'
 
 class ChallengeSearch extends Component {
   state={
@@ -23,7 +30,7 @@ class ChallengeSearch extends Component {
       }).map(v => v.vote)
 
 
-    
+
       return (<tr key={challenge.id}>
         <th scope="row">{challenge.id}</th>
         <td>{challenge.title}</td>
@@ -57,8 +64,8 @@ class ChallengeSearch extends Component {
           <tbody>
               {ChallengePopulate}
           </tbody>
+          <Route path="/addChallenge" component={AddChallenge}/>
         </Table>
-
 
       </div>
     )

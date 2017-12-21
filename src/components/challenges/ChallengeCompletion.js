@@ -5,7 +5,6 @@ import {RadialChart, XYPlot, LabelSeries} from 'react-vis';
 
 const ChallengeCompletion = (props) => {
 
-  const myData = [{angle: 34, label: 'woah!'}, {angle: 5, label:"test"}, {angle: 2, label:"test"}]
 
   let myRealData = []
 
@@ -28,7 +27,7 @@ const ChallengeCompletion = (props) => {
       } else {
         currentVal = 0
       }
-    myRealData.push({angle:currentVal, label: challenge.title})
+    myRealData.push({angle:currentVal, label: challenge.title + "|"})
 
   })
 console.log("this is myRealData", myRealData)
@@ -40,7 +39,7 @@ console.log("this is myRealData", myRealData)
         showLabels
         data={myRealData}
         width={700}
-        height={750} />
+        height={600} />
   </div>
   )
 }

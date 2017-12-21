@@ -6,6 +6,8 @@ import Store from './store';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
+
+
 const StoreInstance = Store();
 
 ReactDOM.render(

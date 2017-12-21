@@ -5350,6 +5350,13 @@ react-router-dom@^4.2.2:
     react-router "^4.2.0"
     warning "^3.0.0"
 
+react-router-tabs@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-router-tabs/-/react-router-tabs-1.0.2.tgz#445b67b95f2c620895b956e1ae2c4f7e5e403da6"
+  dependencies:
+    prop-types "^15.6.0"
+    react-router-dom "^4.2.2"
+
 react-router@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-4.2.0.tgz#61f7b3e3770daeb24062dae3eedef1b054155986"

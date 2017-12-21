@@ -13,3 +13,12 @@ footer {
   left: 0;
   right: 0;
 }
+
+g.rv-xy-plot__series.rv-xy-plot__series--label.undefined > text {
+  font-size: 1em;
+}
+
+svg {
+  padding-left: 5%;
+  margin-bottom: 20%;
+}

@@ -11,16 +11,13 @@ const TopNav = (props) => {
   <div className="collapse navbar-collapse" id="navbarColor02">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
-        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+        <a className="nav-link" href="/users">Home <span className="sr-only">(current)</span></a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Features</a>
+        <a className="nav-link" href="https://github.com/Khanbhai1990">GitHub</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Pricing</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">About</a>
+        <a className="nav-link" href="https://www.linkedin.com/in/hassan-khan-7367b18b/">LinkedIn</a>
       </li>
     </ul>
     <form className="form-inline my-2 my-lg-0">

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 // import { editUser } from '../../actions/users'
 import { bindActionCreators } from 'redux'
 
-import { Table, Button } from 'reactstrap';
+import { Table, Button, Label } from 'reactstrap';
 
 class UserNote extends Component {
   render () {
@@ -29,7 +29,7 @@ class UserNote extends Component {
       voteReduce = voteArr != 0 ? voteArr.reduce(reducer):0
 
         if (activeArr.length>2 || voteReduce<-3){
-        
+
           return (
 
           <tr key={user.id}>
@@ -37,7 +37,7 @@ class UserNote extends Component {
             <td>{user.name}</td>
             <td style={activeArr.length>2 ? { color:"red"}:{ color:"green"}}>{activeArr.length}</td>
             <td style={voteReduce<-3 ? { color:"red"}:{ color:"green"}}>{voteReduce}</td>
-            <td>{activeArr.length>2 ? "Active Much?":"Debby Downer?"}</td>
+            <td><Label for="exampleText">{activeArr.length>2 ? "Active Much?":"Debby Downer?"}</Label></td>
           </tr>
         )
       }

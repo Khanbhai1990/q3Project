@@ -3,10 +3,12 @@ import React, { Component } from 'react'
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 
+
 import ChallengeSearch from './ChallengeSearch'
 import ChallengeRating from './ChallengeRating'
 import ChallengeCompletion from './ChallengeCompletion'
 import ChallengeNote from './ChallengeNote'
+// import AddChallenge from './AddChallenge'
 
 import {
   BrowserRouter as Router,
@@ -31,35 +33,45 @@ class AllChallenges extends Component {
   render () {
     return (
       <div>
+
         <Router>
+        
           <div>
         <Nav tabs>
           <NavItem>
             <NavLink
+              tag={Link}
+              to="/challenges/search"
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => { this.toggle('1'); }}
             >
-              ChallengeSearch tab
+              Search Challenges
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
+              tag={Link}
+              to="/challenges/ratings"
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggle('2'); }}
             >
-              ChallengeRating tab
+              Ratings Graph
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
+              tag={Link}
+              to="/challenges/completion"
               className={classnames({ active: this.state.activeTab === '3' })}
               onClick={() => { this.toggle('3'); }}
             >
-              ChallengeCompletion tab
+              Challenge Completion
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
+              tag={Link}
+              to="/challenges/notifications"
               className={classnames({ active: this.state.activeTab === '4' })}
               onClick={() => { this.toggle('4'); }}
             >
@@ -71,28 +83,28 @@ class AllChallenges extends Component {
           <TabPane tabId="1">
             <Row>
               <Col sm="12">
-                <Route path="/" component={ChallengeSearch}/>
+                <Route path="/challenges/" component={ChallengeSearch}/>
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="2">
             <Row>
               <Col sm="12">
-                <Route path="/" component={ChallengeRating}/>
+                <Route path="/challenges/ratings" component={ChallengeRating}/>
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="3">
             <Row>
               <Col sm="12">
-                <Route path="/" component={ChallengeCompletion}/>
+                <Route path="/challenges/completion" component={ChallengeCompletion}/>
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="4">
             <Row>
               <Col sm="12">
-                <Route path="/" component={ChallengeNote}/>
+                <Route path="/challenges/notifications" component={ChallengeNote}/>
               </Col>
             </Row>
           </TabPane>

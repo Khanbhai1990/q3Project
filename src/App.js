@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 
+
+
 import TopNav from './components/TopNav'
 import Footer from './components/Footer'
 import AllUsers from './components/users/AllUsers'
@@ -20,12 +22,13 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom'
 
 class App extends Component {
   state = {
-     activeTab: '1'
+     activeTab: window.location.pathname
   }
 
   componentDidMount() {
@@ -33,6 +36,9 @@ class App extends Component {
   this.props.getChallenges()
   this.props.getActivities()
 }
+
+
+
 
 toggle = (tab)=>{
   if (this.state.activeTab !== tab) {
@@ -42,52 +48,57 @@ toggle = (tab)=>{
    }
 }
   render() {
-
     return (
       <div className="App">
         <Router>
+          <Switch>
+            <Route exact path='/' render={props => (
+                <Redirect to={window.location.pathname == "/"? "/users": window.location.pathname} />
+              )}
+            />
           <div>
             <TopNav />
         <Nav tabs>
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === '1' })}
-              onClick={() => { this.toggle('1'); }}
+              tag={Link}
+              to="/users"
+              className={classnames({ active: this.state.activeTab == window.location.pathname})}
+              onClick={() => { this.toggle('/users')}}
             >
               Users Tab
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === '2' })}
-              onClick={() => { this.toggle('2'); }}
+              tag={Link}
+              to="/challenges"
+              className={classnames({ active: this.state.activeTab == window.location.pathname})}
+              onClick={() => { this.toggle('/challenges')}}
             >
               Challenges Tab
             </NavLink>
           </NavItem>
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="1">
+          <TabPane tabId="/users">
             <Row>
               <Col sm="12">
-                <Route path="/" component={AllUsers}/>
+                <Route path="/users" component={AllUsers}/>
               </Col>
             </Row>
           </TabPane>
-          <TabPane tabId="2">
+          <TabPane tabId="/challenges">
             <Row>
               <Col sm="12">
-                <Route path="/" component={AllChallenges}/>
+                <Route path="/challenges" component={AllChallenges}/>
               </Col>
             </Row>
           </TabPane>
         </TabContent>
-
-
-
-
             <Footer />
           </div>
+          </Switch>
         </Router>
       </div>
     );

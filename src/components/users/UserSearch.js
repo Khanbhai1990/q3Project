@@ -13,7 +13,7 @@ class UserSearch extends Component {
             return usr.name.split("", this.state.user.length).join("").toLowerCase() == this.state.user.toLowerCase()
           })
     let populate = findUser.length == 0 ? usersClone:findUser
-    let ChallengePopulate = populate.map(user=>{
+    let UsersPopulate = populate.map(user=>{
             return (
                     <tr key={user.id} >
                       <th scope="row">{user.id}</th>
@@ -51,7 +51,7 @@ class UserSearch extends Component {
             </tr>
           </thead>
           <tbody>
-              {ChallengePopulate}
+              {UsersPopulate}
           </tbody>
         </Table>
 

@@ -38,7 +38,7 @@ class AllUsers extends Component {
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => { this.toggle('1'); }}
             >
-              UserSearch tab
+              Search Users
             </NavLink>
           </NavItem>
           <NavItem>
@@ -46,7 +46,7 @@ class AllUsers extends Component {
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggle('2'); }}
             >
-              UsersByMap tab
+              Users By State
             </NavLink>
           </NavItem>
           <NavItem>
@@ -54,7 +54,7 @@ class AllUsers extends Component {
               className={classnames({ active: this.state.activeTab === '3' })}
               onClick={() => { this.toggle('3'); }}
             >
-              UsersByAge tab
+              Users By Age
             </NavLink>
           </NavItem>
           <NavItem>
