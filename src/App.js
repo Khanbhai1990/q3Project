@@ -18,6 +18,7 @@ import { getChallenges } from './actions/challenges'
 import { getActivities } from './actions/activities'
 
 
+
 import {
   BrowserRouter as Router,
   Route,
@@ -25,6 +26,10 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
+
+import AuthService from './components/AuthService';
+import withAuth from './components/withAuth';
+const Auth = new AuthService();
 
 class App extends Component {
   state = {
@@ -35,8 +40,12 @@ class App extends Component {
   this.props.getUsers()
   this.props.getChallenges()
   this.props.getActivities()
-}
+  }
 
+  handleLogout(){
+    Auth.logout()
+    this.props.history.replace('/login');
+  }
 
 
 
@@ -50,6 +59,11 @@ toggle = (tab)=>{
   render() {
     return (
       <div className="App">
+        <p className="App-intro">
+            <button type="button" className="form-submit" onClick={this.handleLogout.bind(this)}>Logout</button>
+        </p>
+
+
         <Router>
           <Switch>
             <Route exact path='/' render={props => (
@@ -113,4 +127,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default withAuth(connect(null, mapDispatchToProps)(App));
